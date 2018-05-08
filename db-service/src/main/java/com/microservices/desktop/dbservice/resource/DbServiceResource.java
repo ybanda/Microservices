@@ -47,4 +47,10 @@ public class DbServiceResource {
 		}*/
 		
 	}
+	
+	@PostMapping("/delete/{userId}")
+	public List<String> delete(@PathVariable("userId") final String userId) {
+		 userRepository.deleteAll(userRepository.findByUserId(userId));
+		 return getUserDetails(userId);
+	}
 }

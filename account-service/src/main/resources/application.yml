@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: account-service
+ 
+server:
+  port: 8334
+ 
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8335/eureka/
+  instance:
+      hostname: localhost
+      
