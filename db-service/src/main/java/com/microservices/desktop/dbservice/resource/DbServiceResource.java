@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +37,14 @@ public class DbServiceResource {
 				.collect(Collectors.toList());
 	}
 	@PostMapping("/add")
-	public void addUsers() {
+	public void addUsers(@RequestBody final UserDetails user) {
+		userRepository.save(user);
+		/*Input Format {
+		    "id": 3,
+		    "userName": "BYKR1",
+		    "userId":"bykr1",
+		    "designation": "ASE"
+		}*/
 		
 	}
 }
